@@ -1,0 +1,45 @@
+<odoo>
+    <record id="view_order_form_product_id_techspawn" model="ir.ui.view">
+        <field name="name">sale.order.form</field>
+        <field name="model">sale.order</field>
+        <field name="inherit_id" ref="sale.view_order_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='product_id']" position="before">
+                <field name="product_lines"/>
+                <field name="test_field_widget" widget="custom_monetary"/>
+            </xpath>
+            <xpath expr="//field[@name='product_id']" position="attributes">
+                <attribute name="attrs">{'invisible': [('product_lines', '=', False)]}</attribute>
+            </xpath>
+            <xpath expr="//tree/field[@name='product_id']" position="after">
+                <field name="product_lines" />
+            </xpath>
+
+            <xpath expr="//tree/field[@name='product_id']" position="attributes">
+                <attribute name="attrs">{'invisible': [('product_lines', '=', False)]}</attribute>
+            </xpath>
+            <xpath expr="//tree/field[@name='product_template_id']"
+                   position="attributes">
+                <attribute name="attrs">{'invisible': [('product_lines', '=', True)]}</attribute>
+            </xpath>
+        </field>
+    </record>
+    <!--<record id="sale.action_orders_salesteams" model="ir.actions.act_window">-->
+
+        <!--<field name="context">{-->
+            <!--'search_default_team_id': [active_id],-->
+            <!--'default_team_id': active_id,-->
+            <!--'default_product_lines':self.env['ir.config_parameter'].sudo().get_param(-->
+            <!--'techspawn_custom_module.product_lines',default=False),-->
+            <!--}-->
+        <!--</field>-->
+
+    <!--</record>-->
+
+    <template id="assets_backend" name="listview" inherit_id="web.assets_backend">
+        <xpath expr="." position="inside">
+            <script type="text/javascript"
+                    src="/techspawn_custom_module/static/src/js/custom_monetary_widget.js"></script>
+        </xpath>
+    </template>
+</odoo>

@@ -1,0 +1,18 @@
+<odoo>
+    <record id="view_order_form_inherit_excel" model="ir.ui.view">
+        <field name="name">sale.order.form</field>
+        <field name="model">sale.order</field>
+        <field name="inherit_id" ref="sale.view_order_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//header" position="inside">
+                <button name="print_sale_order_excel_report" string="Print Excel" type="object"
+                        default_focus="1" class="oe_highlight"/>
+                <button name="action_quotation_send_excel" string="Send Excel report" type="object"
+                        default_focus="1" class="oe_highlight"/>
+            </xpath>
+
+        </field>
+    </record>
+
+
+</odoo>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <report
+                id="report_custom_sale_order_excel_report"
+                model="sale.order"
+                string="Sale Order Report"
+                report_type="xlsx"
+                name="techspawn_custom_module.report_saleproforma_excel"
+                file="techspawn_custom_module.report_saleproforma_excel"
+                menu="True"/>
+
+    </data>
+</odoo>
